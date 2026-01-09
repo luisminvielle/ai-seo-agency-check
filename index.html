@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astutely | SEO & AEO Growth Agency</title>
+    
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #111111;
+            --text-secondary: #555555;
+            --accent: #000000;
+            --highlight: #f4f4f5;
+            --border: #e4e4e7;
+            --radius: 8px;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-main);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        /* Utilities */
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 80px 0; }
+        .text-center { text-align: center; }
+        
+        /* Navigation (Sticky & Sharp) */
+        nav { 
+            padding: 16px 0; 
+            position: sticky; 
+            top: 0; 
+            background: rgba(255,255,255,0.95); 
+            backdrop-filter: blur(10px); 
+            z-index: 100; 
+            border-bottom: 1px solid var(--border); 
+        }
+        .nav-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-weight: 800; font-size: 1.3rem; letter-spacing: -0.04em; color: var(--text); text-decoration: none; }
+
+        /* HEADER BUTTON - HIGH VISIBILITY */
+        .nav-btn {
+            background: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px; /* Slightly squarer for professional look */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .nav-btn:hover { opacity: 0.85; }
+
+        /* HERO - CONDENSED & HIGH UP */
+        .hero { 
+            padding: 40px 0 60px; /* Reduced top padding */
+            text-align: center; 
+        }
+        h1 {
+            font-size: 3.5rem; 
+            font-weight: 800; 
+            letter-spacing: -0.03em; 
+            line-height: 1.05; 
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        .hero p { 
+            font-size: 1.2rem; 
+            color: var(--text-secondary); 
+            max-width: 600px; 
+            margin: 0 auto 32px; 
+        }
+
+        /* HERO BUTTONS */
+        .btn-group { display: flex; gap: 16px; justify-content: center; }
+        .btn-hero {
+            display: inline-flex; align-items: center; justify-content: center;
+            background: var(--accent); color: white; font-weight: 600; padding: 16px 32px;
+            border-radius: 50px; text-decoration: none; transition: transform 0.1s; font-size: 1.05rem; border: none; cursor: pointer;
+        }
+        .btn-hero:hover { transform: translateY(-1px); }
+        .btn-secondary { background: white; color: var(--text); border: 1px solid #ccc; }
+        .btn-secondary:hover { background: var(--highlight); border-color: #999; }
+
+        /* STATIC LOGO GRID (Subtle & Professional) */
+        .trusted-by {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 40px 0;
+            background: #fafafa;
+        }
+        .logo-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 32px 48px; /* Row gap / Column gap */
+            opacity: 0.6;
+        }
+        .logo-item {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* STATS (Clean Dark Mode) */
+        .stats-section {
+            background: #111;
+            color: white;
+            padding: 80px 0;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+        .stat-card h3 { font-size: 3rem; font-weight: 800; margin-bottom: 4px; letter-spacing: -0.02em; }
+        .stat-card p { color: #999; font-size: 0.95rem; line-height: 1.4; }
+        .green { color: #4ade80; }
+
+        /* CHART */
+        .chart-box { padding: 20px; background: #222; border-radius: 12px; border: 1px solid #333; }
+        .chart-container { display: flex; align-items: flex-end; justify-content: space-between; height: 120px; gap: 10px; margin-top: 10px; }
+        .bar { width: 100%; background: #444; border-radius: 4px 4px 0 0; position: relative; }
+        .bar.active { background: #fff; }
+        .bar span { position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; color: #fff; font-weight: bold; }
+
+        /* SERVICES */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .card {
+            background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 32px;
+            display: flex; flex-direction: column; height: 100%; transition: box-shadow 0.2s;
+        }
+        .card:hover { box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .price { font-size: 2rem; font-weight: 800; margin: 16px 0; }
+        .price span { font-size: 1rem; font-weight: 400; color: var(--text-secondary); }
+        .features { list-style: none; margin: 20px 0 32px; font-size: 0.95rem; }
+        .features li { margin-bottom: 10px; color: var(--text-secondary); display: flex; align-items: flex-start; }
+        .features li::before { content: "•"; margin-right: 10px; color: var(--accent); font-weight: bold; }
+        .card .btn-card { width: 100%; margin-top: auto; background: var(--highlight); color: var(--text); padding: 14px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer; }
+        .card .btn-card:hover { background: #e4e4e7; }
+        
+        .card.featured { border: 2px solid var(--accent); background: #fff; position: relative; overflow: hidden; }
+        .card.featured .badge { position: absolute; top: 0; right: 0; background: var(--accent); color: white; padding: 6px 16px; font-size: 0.75rem; font-weight: 700; border-bottom-left-radius: 12px; }
+        .card.featured .btn-card { background: var(--accent); color: white; }
+        .card.featured .btn-card:hover { opacity: 0.9; }
+
+        /* TEAM */
+        .team-container { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+        .team-member { display: flex; align-items: center; gap: 20px; text-align: left; max-width: 400px; }
+        .avatar { width: 80px; height: 80px; border-radius: 50%; background: #eee; object-fit: cover; }
+        .role { font-size: 0.9rem; color: var(--text-secondary); margin-top: 4px; }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .btn-group { flex-direction: column; }
+            .btn-hero { width: 100%; }
+            .logo-grid { gap: 24px 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">Astutely.</a>
+            <button data-cal-link="YOUR_LINK/discovery" class="nav-btn">Book Strategy Call</button>
+        </div>
+    </nav>
+
+    <header class="container hero">
+        <h1>SEO and AI Growth.<br>Backed by Data and Brand Storytelling.</h1>
+        <p>Get your business ready for ChatGPT and Google AI Overviews.<br>We turn search traffic into revenue through storytelling that stands out in the age of AI.</p>
+        
+        <div class="btn-group">
+            <button data-cal-link="YOUR_LINK/discovery" class="btn-hero">Get a Free Consultation</button>
+            <a href="#audit" class="btn-hero btn-secondary">View Plans</a>
+        </div>
+    </header>
+
+    <div class="trusted-by">
+        <div class="container">
+            <p class="text-center" style="font-size: 0.75rem; color: #999; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1px;">Trusted by teams at</p>
+            <div class="logo-grid">
+                <span class="logo-item">CNN</span>
+                <span class="logo-item">Warner Bros. Discovery</span>
+                <span class="logo-item">Condé Nast</span>
+                <span class="logo-item">TalentHR</span>
+                <span class="logo-item">WeAreDevelopers</span>
+                <span class="logo-item">World Economic Forum</span>
+                <span class="logo-item">Suno</span>
+                <span class="logo-item">Bandcamp</span>
+                <span class="logo-item">Joberty</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 50px;">
+                <h2 style="font-size: 2.2rem; margin-bottom: 10px;">We Move Needles.</h2>
+                <p style="opacity: 0.6;">Real results from the last 5 years.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>620<span class="green">%</span></h3>
+                    <p>Year-on-year organic growth for WeAreDevelopers</p>
+                </div>
+                <div class="stat-card">
+                    <h3>800<span class="green">%</span></h3>
+                    <p>Traffic increase for Honeypot.io<br>(12k to 100k/mo)</p>
+                </div>
+                <div class="chart-box">
+                    <div style="font-weight: 700; font-size: 0.85rem; color: #ddd; margin-bottom: 10px;">Organic Clicks (Monthly)</div>
+                    <div class="chart-container">
+                        <div class="bar" style="height: 10%;"></div>
+                        <div class="bar" style="height: 15%;"></div>
+                        <div class="bar" style="height: 30%;"></div>
+                        <div class="bar" style="height: 60%;"></div>
+                        <div class="bar active" style="height: 100%;"><span>7.7k</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="audit" class="section container">
+        <div class="text-center" style="margin-bottom: 50px;">
+            <h2 style="font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em;">Simple, Flat Pricing.</h2>
+        </div>
+
+        <div class="services-grid">
+            <div class="card">
+                <h3>⚡ Quick Review</h3>
+                <div class="price">$97 <span>/ one-time</span></div>
+                <ul class="features">
+                    <li>20-min screen-share audit</li>
+                    <li>3–5 key instant fixes</li>
+                    <li>Delivered in 48 hours</li>
+                </ul>
+                <button data-cal-link="YOUR_LINK/quick-review" class="btn-card">Book Review</button>
+            </div>
+
+            <div class="card featured">
+                <div class="badge">POPULAR</div>
+                <h3>🚀 Full Audit</h3>
+                <div class="price">$197 <span>/ one-time</span></div>
+                <ul class="features">
+                    <li>45-min live strategy session</li>
+                    <li>Full site walkthrough (recorded)</li>
+                    <li>Written executive summary</li>
+                    <li>Growth roadmap</li>
+                </ul>
+                <button data-cal-link="YOUR_LINK/full-audit" class="btn-card">Book Audit</button>
+            </div>
+
+            <div class="card">
+                <h3>🧠 Deep Dive</h3>
+                <div class="price">$397 <span>/ session</span></div>
+                <ul class="features">
+                    <li>90-min strategy deep dive</li>
+                    <li>30-day follow-up support</li>
+                    <li>Competitor breakdown</li>
+                </ul>
+                <button data-cal-link="YOUR_LINK/deep-dive" class="btn-card">Book Strategy</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section container" style="border-top: 1px solid var(--border);">
+        <h3 class="text-center" style="font-size: 1.5rem; margin-bottom: 30px; letter-spacing: -0.02em;">The Partners</h3>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="eli.jpg" alt="Eli" class="avatar">
+                <div>
+                    <div style="font-weight: 800; font-size: 1.1rem;">Eli</div>
+                    <div class="role">Tech Strategy & Infrastructure</div>
+                </div>
+            </div>
+            <div class="team-member">
+                <img src="luis.jpg" alt="Luis" class="avatar">
+                <div>
+                    <div style="font-weight: 800; font-size: 1.1rem;">Luis</div>
+                    <div class="role">Content & Brand Storytelling</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center" style="padding: 60px 0; color: #999; font-size: 0.85rem; border-top: 1px solid var(--border);">
+        <p style="margin-bottom: 10px;"><strong>Astutely.</strong></p>
+        <p>&copy; 2026 Astutely. Global SEO & AI Growth Agency.</p>
+    </footer>
+
+</body>
+</html>
